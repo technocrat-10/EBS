@@ -1,0 +1,59 @@
+SETTING UP MICROSOFT ACCESS DATABASE CONNECTION
+================================================
+
+To connect to the Access database (ebs.mdb) and perform all operations, follow these steps:
+
+1. INSTALL JAVA 7 (32-BIT)
+---------------------------
+- Download and install 32-bit Java 7 (JDK 1.7) from Oracle Archive
+- Make sure it's set as your default Java version
+- Verify by running: java -version
+  (Should show version 1.7.x)
+
+2. INSTALL MICROSOFT ACCESS DATABASE ENGINE
+------------------------------------------
+- If you have Microsoft Office with Access installed, you likely already have the drivers
+- If not, download and install the Microsoft Access Database Engine:
+  a) For 32-bit: 
+     Download: Microsoft Access Database Engine 2010 (32-bit)
+     https://www.microsoft.com/en-us/download/details.aspx?id=13255
+
+  b) For 64-bit:
+     Download: Microsoft Access Database Engine 2010 (64-bit)
+     https://www.microsoft.com/en-us/download/details.aspx?id=54920
+
+  IMPORTANT: The bitness (32/64) of Java and Access drivers MUST match!
+
+3. VERIFY THE DATABASE FILE EXISTS
+---------------------------------
+- Make sure ebs.mdb is in the application's root directory
+- If it doesn't exist, create an empty Access database named ebs.mdb
+  (The application will create the necessary tables)
+
+4. COMPILE AND RUN THE APPLICATION
+---------------------------------
+- Double-click on compile.bat to compile the code
+- Double-click on run_ebs.bat to run the application
+- Log in with username: admin and password: admin
+
+5. TROUBLESHOOTING
+-----------------
+If you encounter database connection errors:
+
+a) Driver not found error:
+   - Ensure Microsoft Access Database Engine is installed
+   - Make sure Java is 32-bit if using 32-bit Access drivers (most common)
+
+b) Database file not found:
+   - Verify ebs.mdb exists in the application directory
+   - Check file permissions (read/write access)
+
+c) Table access errors:
+   - The application will create necessary tables if they don't exist
+   - If tables are corrupted, delete ebs.mdb and let the application create a new one
+
+d) NullPointerException when opening screens:
+   - This usually indicates a database connection problem
+   - Make sure all the above steps are completed correctly
+
+For any other issues, please refer to the README.md file or contact support. 

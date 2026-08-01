@@ -1,0 +1,64 @@
+ELECTRICITY BILLING SYSTEM - SETUP INSTRUCTIONS
+==============================================
+
+OVERVIEW
+--------
+The Electricity Billing System uses a Microsoft Access database (ebs.mdb)
+to store customer information, bills, and user accounts. To run the
+application successfully, you need to:
+
+1. Have Java 7 installed (required for JDBC-ODBC Bridge)
+2. Have Microsoft Access Database Engine installed
+3. Ensure the ebs.mdb file exists
+
+STEP-BY-STEP SETUP
+-----------------
+
+1. INSTALL JAVA 7
+   - The application requires Java 7 (not Java 8 or higher)
+   - JDBC-ODBC Bridge was removed in Java 8
+   - Download Java 7 JDK from Oracle Archive if needed
+
+2. INSTALL ACCESS DATABASE DRIVERS
+   - Run install_access_driver.bat
+   - Select option 1 to download the Microsoft Access Database Engine
+   - Choose the version that matches your Java architecture (32/64-bit)
+   - Install the downloaded package
+
+3. CREATE OR VERIFY DATABASE FILE
+   - Ensure ebs.mdb exists in the application folder
+   - If not, run install_access_driver.bat and select option 2
+   - Follow the instructions to create an Access database file
+
+4. TEST CONNECTION
+   - Run install_access_driver.bat
+   - Select option 3 to test the database connection
+   - This will verify if your system is properly configured
+
+5. RUN THE APPLICATION
+   - Run run_app.bat to start the application
+   - Log in with:
+     * Username: admin
+     * Password: admin
+
+TROUBLESHOOTING
+--------------
+
+If you encounter the "null" error or NullPointerException:
+
+1. Make sure you have Java 7 installed (not Java 8 or newer)
+   - Check with: java -version
+
+2. Verify that Microsoft Access Database Engine is installed
+   - Use install_access_driver.bat to download and install it
+
+3. Ensure the ebs.mdb file exists and is not corrupted
+   - If in doubt, create a new Access database file
+
+4. Make sure Java and Access Database Engine architectures match
+   - Both should be 32-bit, or both should be 64-bit
+
+5. If all else fails:
+   - Delete the ebs.mdb file
+   - Create a new empty Access database file named ebs.mdb
+   - Run the application, which will create the necessary tables 

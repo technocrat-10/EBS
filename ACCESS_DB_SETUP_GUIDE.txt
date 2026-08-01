@@ -1,0 +1,85 @@
+ELECTRICITY BILLING SYSTEM - ACCESS DATABASE SETUP GUIDE
+======================================================
+
+This comprehensive guide will help you set up the Microsoft Access database
+for the Electricity Billing System and get the system running.
+
+STEP 1: CREATE THE ACCESS DATABASE
+---------------------------------
+1. Open Microsoft Access
+2. Create a new blank database
+3. Save it as "ebs.mdb" in the Electricity_Billing_System-master folder
+   (the same folder that contains this guide)
+
+STEP 2: CREATE THE TABLES
+------------------------
+You need to create three tables in your Access database:
+
+A. CUSTOMER TABLE
+   - Click "Create" tab, then "Table Design"
+   - Add the following fields:
+     * meter_no (Text, Field Size: 20) - Set as Primary Key
+     * name (Text, Field Size: 100)
+     * address (Text, Field Size: 200) 
+     * city (Text, Field Size: 50)
+     * state (Text, Field Size: 50)
+     * email (Text, Field Size: 100)
+     * phone (Text, Field Size: 20)
+   - Save the table as "customer"
+
+B. BILL TABLE
+   - Click "Create" tab, then "Table Design"
+   - Add the following fields:
+     * bill_id (AutoNumber) - Set as Primary Key
+     * meter_no (Text, Field Size: 20)
+     * month (Text, Field Size: 20)
+     * year (Number, Field Size: Integer)
+     * units (Number, Field Size: Integer)
+     * total_bill (Number, Field Size: Double)
+     * status (Text, Field Size: 20)
+   - Save the table as "bill"
+
+C. USER TABLE
+   - Click "Create" tab, then "Table Design"
+   - Add the following fields:
+     * username (Text, Field Size: 50) - Set as Primary Key
+     * password (Text, Field Size: 50)
+     * role (Text, Field Size: 20)
+   - Save the table as "user"
+
+STEP 3: ADD DEFAULT ADMIN USER
+-----------------------------
+1. Open the "user" table
+2. Add a new record with:
+   - username: admin
+   - password: admin
+   - role: admin
+3. Save and close the table
+
+STEP 4: COMPILE AND RUN THE APPLICATION
+-------------------------------------
+1. Double-click the "manual_access_setup.bat" file
+2. When prompted if you have the Access database ready, type Y and press Enter
+3. The script will compile and run the application
+4. Log in with:
+   - Username: admin
+   - Password: admin
+
+TROUBLESHOOTING
+--------------
+If you encounter errors:
+
+1. Table not found errors:
+   - Make sure your table names are exactly: "customer", "bill", and "user" (all lowercase)
+   - Verify the table fields match the specifications above
+
+2. Access errors:
+   - Ensure Microsoft Access is installed on your system
+   - The application requires Java 7 (newer versions don't have JDBC-ODBC bridge)
+
+3. Connection errors:
+   - Make sure ebs.mdb is in the same folder as the application
+   - Check that you have proper permissions to access the database file
+
+4. Running the application without setup:
+   - Use "run_access.bat" to run the application after setup is complete 

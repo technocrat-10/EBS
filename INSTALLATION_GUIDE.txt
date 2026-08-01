@@ -1,0 +1,58 @@
+ELECTRICITY BILLING SYSTEM - INSTALLATION GUIDE
+================================================
+
+This guide will help you install and run the Electricity Billing System correctly.
+
+STEP 1: INSTALL MYSQL SERVER
+---------------------------
+1. Download MySQL Installer from: https://dev.mysql.com/downloads/installer/
+2. Run the installer and follow the installation wizard
+3. When prompted for the root password, use: 1234 
+   (This is important as the application is configured to use this password)
+4. Complete the installation and make sure MySQL service is running
+
+STEP 2: CREATE THE DATABASE
+--------------------------
+1. Run the mysql_setup.bat file
+2. Enter 'Y' when prompted
+3. Enter your MySQL password (1234) when prompted
+4. Wait for the database setup to complete
+
+STEP 3: RUN THE APPLICATION
+--------------------------
+1. Double-click the fix_and_run.bat file in the project directory
+2. The application should compile and run
+3. Login with:
+   - Username: admin
+   - Password: admin
+
+TROUBLESHOOTING
+--------------
+If you encounter issues:
+
+1. MySQL Connection Errors:
+   - Make sure MySQL service is running
+   - Open Windows Services (services.msc), find MySQL and ensure it's Started
+   - Verify that the MySQL password is '1234'
+
+2. Java Errors:
+   - Ensure Java 7 or higher is installed and in your PATH
+   - Check that the mysql-connector-java-5.1.49.jar file is in the project directory
+
+3. Database Tables Not Found:
+   - Run mysql_setup.bat again to create the tables
+   - Make sure the 'ebs' database exists in MySQL
+
+4. Add New Customer Not Working:
+   - This has been fixed by updating the code to use the correct table names
+   - Make sure your database tables are created correctly
+
+DEVELOPER NOTES
+--------------
+If you need to modify the database connection:
+- Edit the src/conn.java file to match your MySQL configuration
+- The default settings are:
+  - Host: localhost
+  - Database: ebs
+  - Username: root
+  - Password: 1234 

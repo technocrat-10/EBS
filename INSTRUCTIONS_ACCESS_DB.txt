@@ -1,0 +1,70 @@
+ELECTRICITY BILLING SYSTEM - ACCESS DATABASE SETUP
+=================================================
+
+This guide will help you set up the Microsoft Access database for the Electricity Billing System.
+
+OPTION 1: USING EXISTING ACCESS DATABASE
+----------------------------------------
+1. Create a new Microsoft Access database (*.mdb format) named "ebs.mdb"
+2. Place the database file in the same directory as this file
+3. Open the Access database and create the following tables:
+
+   A. CUSTOMER TABLE
+   ----------------
+   - meter_no (Text, 20 characters) - Primary Key
+   - name (Text, 100 characters)
+   - address (Text, 200 characters)
+   - city (Text, 50 characters)
+   - state (Text, 50 characters)
+   - email (Text, 100 characters)
+   - phone (Text, 20 characters)
+
+   B. BILL TABLE
+   ------------
+   - bill_id (AutoNumber) - Primary Key
+   - meter_no (Text, 20 characters)
+   - month (Text, 20 characters)
+   - year (Number, Integer)
+   - units (Number, Integer)
+   - total_bill (Number, Decimal)
+   - status (Text, 20 characters)
+
+   C. USER TABLE
+   -----------
+   - username (Text, 50 characters) - Primary Key
+   - password (Text, 50 characters)
+   - role (Text, 20 characters)
+
+4. Add a default admin user by inserting a row into the USER table:
+   - username: admin
+   - password: admin
+   - role: admin
+
+OPTION 2: USING THE AUTOMATED SETUP SCRIPT
+-----------------------------------------
+Run the "setup_access_db.bat" file to automatically:
+1. Download the necessary libraries
+2. Create the Access database if it doesn't exist
+3. Set up the tables
+4. Run the application
+
+RUNNING THE APPLICATION
+----------------------
+After setting up the database:
+1. Double-click the "run_access.bat" file
+2. Log in using:
+   - Username: admin
+   - Password: admin
+
+TROUBLESHOOTING
+--------------
+1. If you receive errors about missing drivers:
+   - Make sure the UCanAccess libraries are in the lib/ folder
+   - Alternatively, use Java 7 which includes the JDBC-ODBC Bridge
+
+2. If tables are not found:
+   - Make sure the ebs.mdb file is in the same directory as the JAR file
+   - Verify that you've created all the required tables with correct names
+
+3. If Access is not installed:
+   - Install Microsoft Access or use the UCanAccess option 
